@@ -1,10 +1,17 @@
 {
+	"name" : "andymcr/report-writer",
+	"description" : "Report Writer",
+	"license" : "MIT",
+	"authors" : [{
+			"name" : "Andy Carpenter",
+			"email" : "Andy_Carpenter@btinternet.com"
+		}
+	],
 	"autoload" : {
 		"psr-4" : {
 			"X\\Uk.me.andycarpenter.writer2\\" : "src"
 		}
 	},
-	"name" : "x/uk.me.andycarpenter.writer2",
 	"require" : {
 		"php" : ">=7.1",
 		"phpoffice/phpword": "^0.14.0",

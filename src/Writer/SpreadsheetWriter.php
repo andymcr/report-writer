@@ -142,7 +142,7 @@ class SpreadsheetWriter extends Writer
 
     public function endTable()
     {
-        $this->spreadsheet->getActiveSheet()->setSharedStyle($this->tableStyle, $this->tableStart . ':' . $this->_table_maximum_column . $this->rowIndex);
+        $this->spreadsheet->getActiveSheet()->duplicateStyle($this->tableStyle, $this->tableStart . ':' . $this->_table_maximum_column . $this->rowIndex);
         $this->nextRow();
     }
 

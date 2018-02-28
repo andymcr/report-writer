@@ -9,7 +9,7 @@
 	],
 	"autoload" : {
 		"psr-4" : {
-			"X\\Uk.me.andycarpenter.writer2\\" : "src"
+			"Uk\\Me\\AndyCarpenter\\" : "src"
 		}
 	},
 	"require" : {

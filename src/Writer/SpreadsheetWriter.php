@@ -118,7 +118,7 @@ class SpreadsheetWriter extends Writer
     {
         $this->spreadsheet->getActiveSheet()->setCellValue($this->columnIndex . $this->rowIndex, $title);
         $rowRange = 'A' . $this->rowIndex . ':' . 'Z' . $this->rowIndex;
-        $this->spreadsheet->getActiveSheet()->setSharedStyle($style, $rowRange);
+        $this->spreadsheet->getActiveSheet()->duplicateStyle($style, $rowRange);
         $this->mergeCells($rowRange);
         $this->nextRow();
 

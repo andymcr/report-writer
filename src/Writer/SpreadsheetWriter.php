@@ -71,7 +71,7 @@ class SpreadsheetWriter extends Writer
     	return 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
     }
 
-    public function addSection($title = NULL, $title_level = 1)
+    public function addSection($title = null, $title_level = 1)
     {
         if (!$this->_sheet_used)
             $sheet = $this->spreadsheet->getActiveSheet();
@@ -89,7 +89,7 @@ class SpreadsheetWriter extends Writer
         $this->spreadsheet->getActiveSheet()->getHeaderFooter()->setOddFooter('&R&D &T');
         $this->spreadsheet->getActiveSheet()->getHeaderFooter()->setEvenFooter('&R&D &T');
 
-        $this->_sheet_used = FALSE;
+        $this->_sheet_used = false;
     }
 
     public function setSectionTitle($title)
@@ -122,7 +122,7 @@ class SpreadsheetWriter extends Writer
         $this->mergeCells($rowRange);
         $this->nextRow();
 
-        $this->_sheet_used = TRUE;
+        $this->_sheet_used = true;
     }
 
     public function writeText($text)
@@ -130,10 +130,10 @@ class SpreadsheetWriter extends Writer
         $this->spreadsheet->getActiveSheet()->setCellValue($this->columnIndex . $this->rowIndex, $text);
         $this->nextColumn();
 
-        $this->_sheet_used = TRUE;
+        $this->_sheet_used = true;
     }
 
-    public function startTable($style, $first_row_style = NULL)
+    public function startTable($style, $first_row_style = null)
     {
         $this->tableStart = $this->columnIndex  . $this->rowIndex;
         $this->tableStyle = $style;
@@ -171,16 +171,18 @@ class SpreadsheetWriter extends Writer
 
     public function nextRow()
     {
-        $this->rowIndex++;
+        if ($this->_sheet_used) {
+            $this->rowIndex++;
+        }
         $this->columnIndex = 'A';
     }
 
-    public function writeCell($content, $border_style = NULL, $font_style = NULL, $paragraph_style = NULL)
+    public function writeCell($content, $border_style = null, $font_style = null, $paragraph_style = null)
     {
         $this->spreadsheet->getActiveSheet()->setCellValue($this->columnIndex . $this->rowIndex, $content);
         $this->nextColumn();
 
-        $this->_sheet_used = TRUE;
+        $this->_sheet_used = true;
     }
 
     public function save()
@@ -198,7 +200,7 @@ class SpreadsheetWriter extends Writer
         $font = new Font();
         $style->setFont($font);
         $font->setSize(15);
-        $font->setBold(TRUE);
+        $font->setBold(true);
         $font->setColor(new Color(Color::COLOR_DARKBLUE));
         return $style;
     }
@@ -209,7 +211,7 @@ class SpreadsheetWriter extends Writer
         $font = new Font();
         $style->setFont($font);
         $font->setSize(13);
-        $font->setBold(TRUE);
+        $font->setBold(true);
         $font->setColor(new Color(Color::COLOR_DARKBLUE));
         return $style;
     }
@@ -220,7 +222,7 @@ class SpreadsheetWriter extends Writer
         $font = new Font();
         $style->setFont($font);
         $font->setSize(11);
-        $font->setBold(TRUE);
+        $font->setBold(true);
         $font->setColor(new Color(Color::COLOR_DARKBLUE));
         return $style;
     }
@@ -234,37 +236,37 @@ class SpreadsheetWriter extends Writer
 
     public function getStyleHeaderCellBorder()
     {
-        return NULL;
+        return null;
     }
 
     public function getStyleHeaderCellFont()
     {
-        return NULL;
+        return null;
     }
 
     public function getStyleHeaderCellParagraph()
     {
-        return NULL;
+        return null;
     }
 
     public function getStyleCellBorder()
     {
-        return NULL;
+        return null;
     }
 
     public function getStyleCellFont()
     {
-        return NULL;
+        return null;
     }
 
     public function getStyleCellParagraph()
     {
-        return NULL;
+        return null;
     }
 
     public function getStyleFooter()
     {
-        return NULL;
+        return null;
     }
     
     private function setAutoSizeColumns()
@@ -276,7 +278,7 @@ class SpreadsheetWriter extends Writer
 
     private function setAutoSizeColumn($column)
     {
-        $this->spreadsheet->getActiveSheet()->getColumnDimension($column)->setAutoSize(TRUE);
+        $this->spreadsheet->getActiveSheet()->getColumnDimension($column)->setAutoSize(true);
     }
 
 }

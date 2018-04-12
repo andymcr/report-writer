@@ -135,7 +135,7 @@ class WordWriter extends Writer
     public function writeText($text, $fontStyle = null,
         $paragraphStyle = null)
     {
-        $this->word->addText($text, $fontStyle, $paragraphStyle);
+        $this->section->addText($text, $fontStyle, $paragraphStyle);
         $this->sectionUsed = true;
     }
 

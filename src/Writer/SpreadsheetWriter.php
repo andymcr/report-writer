@@ -71,6 +71,10 @@ class SpreadsheetWriter extends Writer
     	return 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
     }
 
+    public function setTitle($title)
+    {
+    }
+
     public function addSection($title = null, $title_level = 1)
     {
         if (!$this->_sheet_used)

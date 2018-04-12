@@ -48,7 +48,11 @@ class TextWriter extends Writer
     {
         return 'txt';
     }
-    
+
+    public function setTitle($title)
+    {
+    }
+
     public function addSection($title = NULL, $title_level = 1)
     {
     }

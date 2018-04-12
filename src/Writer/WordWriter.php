@@ -17,6 +17,7 @@ class WordWriter extends Writer
     private $format;
     private $word;
     private $section;
+    private $sectionUsed;
     private $table;
     private $_add_table_row;
 
@@ -92,18 +93,29 @@ class WordWriter extends Writer
     		return null;
     }
 
+    public function setTitle($title)
+    {
+        $this->writeText($title, null, $this->getStyleTitle());
+    }
+
     public function addSection($title = NULL, $titleLevel = 1)
     {
-        $this->section = $this->word->addSection();
+        if (empty($this->section) || $this->sectionUsed) {
+            $this->section = $this->word->addSection();
+        }
+        $this->sectionUsed = false;
         $this->setSectionTitle($title, $titleLevel);
 
         $footer = $this->section->addFooter()->addTextRun($this->getStyleFooter());
         $footer->addField('DATE', array('dateformat' => 'd MMMM yyyy'));
     }
 
-    public function setSectionTitle($title, $titleLevel = 1)
+    public function setSectionTitle($title)
     {
-        $this->writeTitle($title, $titleLevel);
+        if ($title != null) {
+            $this->writeTitle($title, $titleLevel);
+            $this->sectionUsed = true;
+        }
     }
 
     public function setSectionOrientation($orientation)
@@ -117,14 +129,14 @@ class WordWriter extends Writer
     public function writeTitle($title, $level, $style = null)
     {
         $this->section->addTitle($title, $level);
+        $this->sectionUsed = true;
     }
 
-    public function writeText($text)
+    public function writeText($text, $fontStyle = null,
+        $paragraphStyle = null)
     {
-//        $this->_excel->getActiveSheet()->setCellValue($this->_column_index . $this->_row_index, $text);
-//        if ($this->_column_index > $this->_grid_maximum_column)
-//            $this->_grid_maximum_column = $this->_column_index;
-//        $this->_column_index++;
+        $this->word->addText($text, $fontStyle, $paragraphStyle);
+        $this->sectionUsed = true;
     }
 
     public function startTable($style, $first_row_style = null)
@@ -132,6 +144,7 @@ class WordWriter extends Writer
         $this->table = $this->section->addTable($style);
         $this->table->setWidth(100 * 50);
         $this->nextRow();
+        $this->sectionUsed = true;
     }
 
     public function endTable()
@@ -166,6 +179,11 @@ class WordWriter extends Writer
         $writer = IOFactory::createWriter($this->word, $this->format);
         $writer->save($filename);
         return $filename;
+    }
+
+    public function getStyleTitle()
+    {
+        return 'Title';
     }
 
     public function getStyleHeader1()

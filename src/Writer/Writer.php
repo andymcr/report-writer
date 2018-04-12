@@ -23,6 +23,8 @@ abstract class Writer
 
     abstract public function getContentType();
     
+    abstract public function setTitle($title);
+
     abstract public function addSection($title = NULL, $title_level = 1);
 
     abstract public function setSectionTitle($title);

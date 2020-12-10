@@ -27,7 +27,7 @@ abstract class Writer
 
     abstract public function addSection($title = NULL, $title_level = 1);
 
-    abstract public function setSectionTitle($title);
+    abstract public function setSectionTitle($title, $title_level = 1);
 
     abstract public function setSectionOrientation($orientation);
 

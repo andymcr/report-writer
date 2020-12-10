@@ -96,7 +96,7 @@ class SpreadsheetWriter extends Writer
         $this->_sheet_used = false;
     }
 
-    public function setSectionTitle($title)
+    public function setSectionTitle($title, $title_level = 1)
     {
         if (!empty($title))
             $this->spreadsheet->getActiveSheet()->setTitle(

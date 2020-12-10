@@ -110,7 +110,7 @@ class WordWriter extends Writer
         $footer->addField('DATE', array('dateformat' => 'd MMMM yyyy'));
     }
 
-    public function setSectionTitle($title, $titleLevel)
+    public function setSectionTitle($title, $titleLevel = 1)
     {
         if ($title != null) {
             $this->writeTitle($title, $titleLevel);

@@ -123,6 +123,11 @@ class TextWriter extends Writer
         return $this->_filename;
     }
 
+    public function saveNamed($filename)
+    {
+        
+    }
+
     public function getStyleHeader1()
     {
         return NULL;

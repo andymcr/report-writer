@@ -191,11 +191,16 @@ class SpreadsheetWriter extends Writer
 
     public function save()
     {
-        $this->spreadsheet->setActiveSheetIndex(0);
         $filename = tempnam('', '');
+        $this-saveNamed($filename);
+        return $filename;
+    }
+
+    public function saveNamed($filename)
+    {
+        $this->spreadsheet->setActiveSheetIndex(0);
         $writer = new Xlsx($this->spreadsheet);
         $writer->save($filename);
-        return $filename;
     }
 
     public function getStyleHeader1()

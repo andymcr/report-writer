@@ -176,9 +176,14 @@ class WordWriter extends Writer
     public function save()
     {
         $filename = tempnam('', '');
+        $this->saveNamed($filename);
+        return $filename;
+    }
+
+    public function saveNamed($filename)
+    {
         $writer = IOFactory::createWriter($this->word, $this->format);
         $writer->save($filename);
-        return $filename;
     }
 
     public function getStyleTitle()

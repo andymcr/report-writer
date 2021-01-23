@@ -51,6 +51,8 @@ abstract class Writer
 
     abstract public function save();
 
+    abstract public function saveNamed($filename);
+    
     abstract public function getStyleHeader1();
 
     abstract public function getStyleHeader2();

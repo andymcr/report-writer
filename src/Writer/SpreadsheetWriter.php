@@ -192,7 +192,7 @@ class SpreadsheetWriter extends Writer
     public function save()
     {
         $filename = tempnam('', '');
-        $this-saveNamed($filename);
+        $this->saveNamed($filename);
         return $filename;
     }
 

@@ -3,8 +3,7 @@ namespace Uk\Me\AndyCarpenter\Writer;
 
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\IOFactory;
-use PhpOffice\PhpWord\Style\Table;
-
+use PhpOffice\PhpWord\SimpleType\TblWidth;
 
 class WordWriter extends Writer
 {
@@ -289,7 +288,7 @@ class WordWriter extends Writer
         ));
 
         $tableStyle = $this->word->addTableStyle($this->getStyleTable(), array(
-            'unit' =>  Table::WIDTH_AUTO,
+            'unit' =>  TblWidth::AUTO,
         ), array(
             'borderBottomSize' => 2 * 8,
         ));

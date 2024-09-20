@@ -5,6 +5,7 @@ use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\IOFactory;
 use PhpOffice\PhpWord\SimpleType\TblWidth;
 
+
 class WordWriter extends Writer
 {
     const FORMAT_DOC = 'Word2007';
@@ -24,6 +25,7 @@ class WordWriter extends Writer
     {
         $this->format = $format;
         $this->word = new PhpWord();
+        $this->word->getSettings()->setOutputEscapingEnabled(true);
 
         $this->addStyles();
 

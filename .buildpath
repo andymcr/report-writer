@@ -11,16 +11,6 @@
 			<attribute name="composer" value="vendor"/>
 		</attributes>
 	</buildpathentry>
-	<buildpathentry kind="src" path="vendor/ezyang/htmlpurifier/library">
-		<attributes>
-			<attribute name="composer" value="vendor"/>
-		</attributes>
-	</buildpathentry>
-	<buildpathentry kind="src" path="vendor/laminas/laminas-escaper/src">
-		<attributes>
-			<attribute name="composer" value="vendor"/>
-		</attributes>
-	</buildpathentry>
 	<buildpathentry kind="src" path="vendor/maennchen/zipstream-php/src">
 		<attributes>
 			<attribute name="composer" value="vendor"/>
@@ -36,12 +26,7 @@
 			<attribute name="composer" value="vendor"/>
 		</attributes>
 	</buildpathentry>
-	<buildpathentry kind="src" path="vendor/myclabs/php-enum/src">
-		<attributes>
-			<attribute name="composer" value="vendor"/>
-		</attributes>
-	</buildpathentry>
-	<buildpathentry kind="src" path="vendor/myclabs/php-enum/stubs">
+	<buildpathentry kind="src" path="vendor/phpoffice/math/src/Math">
 		<attributes>
 			<attribute name="composer" value="vendor"/>
 		</attributes>
@@ -72,11 +57,6 @@
 		</attributes>
 	</buildpathentry>
 	<buildpathentry kind="src" path="vendor/psr/simple-cache/src">
-		<attributes>
-			<attribute name="composer" value="vendor"/>
-		</attributes>
-	</buildpathentry>
-	<buildpathentry kind="src" path="vendor/symfony/polyfill-mbstring">
 		<attributes>
 			<attribute name="composer" value="vendor"/>
 		</attributes>

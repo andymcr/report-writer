@@ -25,7 +25,7 @@ class WordWriter extends Writer
     {
         $this->format = $format;
         $this->word = new PhpWord();
-        $this->word->getSettings()->setOutputEscapingEnabled(true);
+        \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
 
         $this->addStyles();
 

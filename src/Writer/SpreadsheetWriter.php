@@ -191,9 +191,10 @@ class SpreadsheetWriter extends Writer
             $this->spreadsheet->getActiveSheet()->getCell($cellAddress)->getStyle();
         }
         if (!is_null($font_style)) {
-            $this->spreadsheet->getActiveSheet()->getCell($cellAddress)->getStyle()->getFont()
-                ->setName($font_style->getFont()->getName())
-                ->setSize($font_style->getFont()->getSize());
+            $this->spreadsheet->getActiveSheet()->getCell($cellAddress)->getStyle()
+                ->setFont($font_style->getFont())   //->getFont()
+                //->setName($font_style->getFont()->getName())
+                //->setSize($font_style->getFont()->getSize());
         }
         if (!is_null($paragraph_style)) {
             $this->spreadsheet->getActiveSheet()->getCell($cellAddress)->getStyle();

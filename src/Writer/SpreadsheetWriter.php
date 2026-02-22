@@ -185,7 +185,7 @@ class SpreadsheetWriter extends Writer
     {
         $this->spreadsheet->getActiveSheet()->setCellValue($this->columnIndex . $this->rowIndex, $content);
 
-        $callAddress = [$this->columnIndex . $this->rowIndex];
+        $callAddress = $this->columnIndex . $this->rowIndex;
         if (!is_null($border_style)) {
             $this->spreadsheet->getActiveSheet()->getCell($callAddress)->getStyle();
         }

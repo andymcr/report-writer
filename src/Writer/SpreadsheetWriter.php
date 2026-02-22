@@ -183,18 +183,20 @@ class SpreadsheetWriter extends Writer
 
     public function writeCell($content, $border_style = null, $font_style = null, $paragraph_style = null)
     {
-        $this->spreadsheet->getActiveSheet()->setCellValue($this->columnIndex . $this->rowIndex, $content);
+        $cellAddress = $this->columnIndex . $this->rowIndex;
 
-        $callAddress = $this->columnIndex . $this->rowIndex;
+        $this->spreadsheet->getActiveSheet()->setCellValue($cellAddress, $content);
+
         if (!is_null($border_style)) {
-            $this->spreadsheet->getActiveSheet()->getCell($callAddress)->getStyle();
+            $this->spreadsheet->getActiveSheet()->getCell($cellAddress)->getStyle();
         }
         if (!is_null($font_style)) {
-            $this->spreadsheet->getActiveSheet()->getCell($callAddress)->getStyle()
+            $this->spreadsheet->getActiveSheet()->getCell($cellAddress)->getStyle()
                 ->setFont($font_style->getFont());
+                $this->spreadsheet->getActiveSheet()->setCellValue($cellAddress, $font_style->getFont()->getName());
         }
         if (!is_null($paragraph_style)) {
-            $this->spreadsheet->getActiveSheet()->getCell($callAddress)->getStyle();
+            $this->spreadsheet->getActiveSheet()->getCell($cellAddress)->getStyle();
         }
         $this->nextColumn();
 
